@@ -1,0 +1,53 @@
+/*
+ * Polices locales (SIL OFL 1.1, licences dans ../licenses/) :
+ *  - Inter : texte de l'application (400 à 800)
+ *  - Rye   : logo textuel 3D de la sidebar
+ * Sous-ensemble « latin » de @fontsource/inter 5.3.0 et @fontsource/rye 5.3.0, qui couvre le français.
+ */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url('../fonts/inter/inter-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 500;
+    src: url('../fonts/inter/inter-latin-500-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 600;
+    src: url('../fonts/inter/inter-latin-600-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 700;
+    src: url('../fonts/inter/inter-latin-700-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 800;
+    src: url('../fonts/inter/inter-latin-800-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Rye';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url('../fonts/rye/rye-latin-400-normal.woff2') format('woff2');
+}

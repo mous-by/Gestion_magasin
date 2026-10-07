@@ -1,0 +1,946 @@
+/*
+ * Styles propres à l'application, par-dessus le thème (app.css) : palette et thème « Semi Bleu », cartes, modales,
+ * boutons, tableaux, logo 3D, modules à venir. Les polices viennent de fonts.css (locales).
+ */
+
+:root {
+    --nv-accent: #1d4e89;
+    --nv-accent-2: #f97316;
+    --nv-dark: #123a63;
+    --nv-ring: rgba(29, 78, 137, .16);
+    --nv-accent-light: rgba(29, 78, 137, .08);
+    /* Survol unifié (même effet que le menu Paramètres) : fond bleu clair + texte bleu de marque. */
+    --nv-hover-bg: var(--nv-accent-light);
+    --nv-hover-fg: var(--nv-accent);
+}
+
+html.dark-theme {
+    --nv-hover-bg: rgba(255, 255, 255, .08);
+    --nv-hover-fg: #ffffff;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", sans-serif !important;
+}
+
+/* Cards */
+.card {
+    border-radius: 14px;
+    border: 1px solid rgba(15, 23, 42, .06);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, .06);
+}
+
+.card-header-brand {
+    background-color: var(--nv-accent);
+    color: #fff;
+    border: none;
+    border-radius: 13px 13px 0 0;
+    padding: .9rem 1.25rem;
+}
+
+/* Harmonisation : le bleu de marque partout où Bootstrap utilise "primary"
+   (cartes de statistiques du tableau de bord, badges, textes, bordures...),
+   pour rester cohérent avec les en-têtes de carte, les boutons et la sidebar. */
+.bg-primary {
+    background-color: var(--nv-accent) !important;
+}
+.text-primary {
+    color: var(--nv-accent) !important;
+}
+.border-primary {
+    border-color: var(--nv-accent) !important;
+}
+
+/* Modals : même bleu de marque que les en-têtes de carte, pour harmonie. */
+.modal-content {
+    border: none;
+    border-radius: 14px;
+    overflow: hidden;
+}
+.modal-header {
+    background-color: var(--nv-accent);
+    color: #fff;
+    border: none;
+    padding: .9rem 1.25rem;
+}
+.modal-header .modal-title {
+    color: #fff;
+}
+.modal-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Buttons */
+.btn {
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--nv-accent) 0%, var(--nv-dark) 100%);
+    border: none;
+    box-shadow: 0 8px 20px var(--nv-ring);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background: linear-gradient(135deg, var(--nv-dark) 0%, var(--nv-accent) 100%) !important;
+    box-shadow: 0 10px 24px var(--nv-ring);
+}
+
+/* Forms */
+.form-control,
+.form-select {
+    border-radius: 8px;
+    border-color: #dfe5ee;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--nv-accent);
+    box-shadow: 0 0 0 .2rem var(--nv-ring);
+}
+
+.select2-container--bootstrap4 .select2-selection {
+    border-radius: 8px !important;
+    border-color: #dfe5ee !important;
+}
+
+/* Table */
+.table thead th {
+    text-transform: uppercase;
+    font-size: .72rem;
+    letter-spacing: .04em;
+    color: #64748b;
+    border-bottom-width: 2px;
+}
+
+.table > :not(caption) > * > * {
+    padding: .65rem .5rem;
+}
+
+/* Liens de menu de configuration (list-group) */
+.list-group-item {
+    border-radius: 8px !important;
+    margin-bottom: .25rem;
+    border: none;
+    color: #334155;
+    background: transparent;
+    transition: background .15s, color .15s;
+}
+
+.list-group-item:hover,
+.list-group-item:focus {
+    background: var(--nv-hover-bg) !important;
+    color: var(--nv-hover-fg) !important;
+}
+
+.list-group-item.active {
+    background-color: var(--nv-accent);
+    border-color: var(--nv-accent);
+    color: #fff;
+}
+
+/* Modal */
+.modal-content {
+    border-radius: 14px;
+    border: none;
+    box-shadow: 0 30px 60px rgba(15, 23, 42, .25);
+}
+
+.modal-header {
+    border-bottom-color: #eef1f5;
+}
+
+.modal-footer {
+    border-top-color: #eef1f5;
+}
+
+/* ============================================================
+   En-tête sidebar : logo textuel « NUMERISE » en 3D
+   (police décorative façon "Algerian" + relief)
+   ============================================================ */
+.sidebar-header .logo-3d {
+    font-family: 'Rye', Georgia, serif;
+    font-weight: 400;
+    font-size: 21px;
+    letter-spacing: 0;
+    line-height: 1;
+    white-space: nowrap;
+    margin-left: 2px;
+}
+
+.sidebar-header .logo-3d .w3d-n { margin-left: 5px; }
+
+.sidebar-header .logo-3d .w3d-w {
+    color: #1d4e89;
+    text-shadow: 1px 1px 0 #17406f, 2px 2px 0 #123457, 3px 3px 0 #0d2740, 4px 5px 5px rgba(0, 0, 0, .35);
+}
+
+.sidebar-header .logo-3d .w3d-n {
+    color: #f97316;
+    text-shadow: 1px 1px 0 #d9620c, 2px 2px 0 #b5500a, 3px 3px 0 #8a3d07, 4px 5px 5px rgba(0, 0, 0, .35);
+}
+
+/* Mini logo « NV » affiché uniquement quand la sidebar est repliée */
+.sidebar-header .logo-3d-mini {
+    font-family: 'Rye', Georgia, serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--nv-accent);
+    width: 40px;
+    text-align: center;
+    line-height: 1;
+    text-shadow: 1px 1px 0 #17406f, 2px 2px 0 #123457, 3px 3px 4px rgba(0, 0, 0, .3);
+    display: none;
+}
+
+.wrapper.toggled:not(.sidebar-hovered) .sidebar-header .logo-3d-mini {
+    display: inline-block;
+}
+
+/* Actions rapides du tableau de bord */
+.quick-action { transition: transform .15s ease, box-shadow .15s ease; }
+.quick-action:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(29, 78, 137, .15); }
+
+/* ============================================================
+   Thème "Semi Bleu" : thème par défaut.
+   Même principe que "Semi Dark" (sidebar sombre, contenu clair)
+   mais avec le bleu de marque déjà utilisé pour les card-header-brand.
+   ============================================================ */
+html.semi-bleu .sidebar-wrapper {
+    background: linear-gradient(180deg, #0b2e4f 0%, #123a63 100%);
+    border-right: 1px solid #00000000;
+}
+html.semi-bleu .sidebar-wrapper .sidebar-header {
+    background: transparent;
+    border-right: 1px solid #00000000;
+    border-bottom: 1px solid rgba(255, 255, 255, .15);
+}
+html.semi-bleu .sidebar-wrapper .sidebar-header .logo-text {
+    color: #fff;
+}
+html.semi-bleu .sidebar-wrapper .sidebar-header .toggle-icon {
+    color: #fff;
+}
+html.semi-bleu .sidebar-wrapper .sidebar-header .logo-3d .w3d-w {
+    color: #7fb0e8;
+}
+html.semi-bleu .sidebar-wrapper .sidebar-header .logo-3d-mini {
+    color: #7fb0e8;
+}
+html.semi-bleu .sidebar-wrapper .metismenu a {
+    color: #c7d6e8;
+}
+html.semi-bleu .sidebar-wrapper .metismenu a:hover,
+html.semi-bleu .sidebar-wrapper .metismenu a:focus,
+html.semi-bleu .sidebar-wrapper .metismenu a:active,
+html.semi-bleu .sidebar-wrapper .metismenu .mm-active>a {
+    color: #fff;
+    text-decoration: none;
+    background: rgba(255, 255, 255, .18);
+}
+html.semi-bleu .sidebar-wrapper .metismenu ul {
+    border: 1px solid #00000000;
+    background: rgba(255, 255, 255, .08);
+}
+html.semi-bleu .simplebar-scrollbar:before {
+    background: rgba(255, 255, 255, .4);
+}
+
+/* Semi Bleu : en-tête (topbar) et pied de page dans le même bleu que la sidebar */
+html.semi-bleu .topbar {
+    background-color: #123a63;
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+html.semi-bleu .page-footer {
+    background-color: #123a63;
+    border-top: 1px solid rgba(255, 255, 255, .12);
+    color: rgba(255, 255, 255, .75);
+}
+html.semi-bleu .mobile-toggle-menu,
+html.semi-bleu .toggle-icon,
+html.semi-bleu .topbar .navbar-nav .nav-link,
+html.semi-bleu .topbar .top-menu-left .nav-item .nav-link {
+    color: #fff;
+}
+html.semi-bleu .user-info .user-name {
+    color: #fff;
+}
+html.semi-bleu .user-info .designattion {
+    color: rgba(255, 255, 255, .7);
+}
+html.semi-bleu .search-bar input {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .12);
+    border: 1px solid rgba(255, 255, 255, .18);
+}
+html.semi-bleu .search-bar input::placeholder {
+    color: rgba(255, 255, 255, .65) !important;
+    opacity: 1 !important;
+}
+
+/* Recherche des tableaux (DataTables) sur mobile : par défaut le plugin
+   centre "Afficher X éléments" et "Rechercher :" en dessous de 768px, ce qui
+   les désaligne l'un de l'autre (le champ de recherche, presque aussi large
+   que la colonne, bouge à peine ; le sélecteur "Afficher", plus étroit,
+   se retrouve décalé vers la droite). On les aligne à gauche et on donne au
+   champ de recherche toute la largeur disponible pour un usage tactile. */
+@media (max-width: 767.98px) {
+    .dataTables_wrapper .dataTables_length,
+    .dataTables_wrapper .dataTables_filter {
+        text-align: left;
+        margin-bottom: .75rem;
+    }
+    .dataTables_wrapper .dataTables_length label,
+    .dataTables_wrapper .dataTables_filter label {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: .5rem;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    .dataTables_wrapper .dataTables_filter input[type="search"] {
+        flex: 1 1 auto;
+        min-width: 0;
+        margin-left: 0 !important;
+    }
+}
+
+/* Modules à venir dans la sidebar (D25) : entrées visibles mais atténuées, avec une pastille « À venir ». */
+.sidebar-wrapper .metismenu li.planned > a {
+    opacity: .8;
+}
+
+.sidebar-wrapper .metismenu li.planned > a:hover {
+    opacity: 1;
+}
+
+.sidebar-wrapper .metismenu .planned-badge {
+    margin-left: auto;
+    padding: .1rem .45rem;
+    border-radius: 999px;
+    font-size: .6rem;
+    font-weight: 700;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    color: #123a63;
+    background: #f4d35e;
+    white-space: nowrap;
+}
+
+html.semi-bleu .sidebar-wrapper .metismenu .menu-label {
+    color: #7fb0e8;
+}
+
+/* Paramètres : bloc du bas de la sidebar, séparé des autres menus. */
+.sidebar-wrapper .metismenu li.sidebar-bottom {
+    margin-top: 1rem;
+    padding-top: .5rem;
+    border-top: 1px solid rgba(255, 255, 255, .15);
+}
+
+/* ============================================================
+   Survol unifié : le même effet partout (référence : menu Paramètres).
+   Fond bleu clair, texte bleu de marque, transition douce. La sidebar, sur fond sombre, a son équivalent clair
+   (thème Semi Bleu) ; les boutons pleins gardent leur propre survol.
+   ============================================================ */
+.dropdown-menu .dropdown-item,
+.nav-tabs .nav-link,
+.page-link,
+.select2-container--bootstrap4 .select2-results__option {
+    transition: background .15s, color .15s;
+}
+
+/* Menus déroulants : profil, notifications, actions */
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+    background: var(--nv-hover-bg) !important;
+    color: var(--nv-hover-fg) !important;
+}
+
+.dropdown-menu .dropdown-item:active,
+.dropdown-menu .dropdown-item.active {
+    background: var(--nv-accent) !important;
+    color: #fff !important;
+}
+
+/* Menu du profil : entrées arrondies et décollées des bords, comme les entrées des Paramètres */
+.user-box .dropdown-menu {
+    padding: .35rem 0;
+}
+
+.user-box .dropdown-menu .dropdown-item {
+    border-radius: 8px;
+    margin: 2px 6px;
+    width: calc(100% - 12px);
+}
+
+/* Onglets */
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+    background: var(--nv-hover-bg);
+    color: var(--nv-hover-fg);
+    border-color: transparent;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--nv-accent);
+    font-weight: 600;
+}
+
+/* Pagination des tableaux */
+.page-link:hover,
+.page-link:focus {
+    background: var(--nv-hover-bg);
+    color: var(--nv-hover-fg);
+}
+
+.page-item.active .page-link {
+    background: var(--nv-accent);
+    border-color: var(--nv-accent);
+    color: #fff;
+}
+
+/* Listes déroulantes Select2 */
+.select2-container--bootstrap4 .select2-results__option--highlighted[aria-selected],
+.select2-container--bootstrap4 .select2-results__option--highlighted {
+    background: var(--nv-hover-bg) !important;
+    color: var(--nv-hover-fg) !important;
+}
+
+.select2-container--bootstrap4 .select2-results__option[aria-selected=true] {
+    background: var(--nv-accent) !important;
+    color: #fff !important;
+}
+
+/* Lignes de tableau au survol (tables .table-hover) */
+.table-hover > tbody > tr:hover > * {
+    --bs-table-accent-bg: var(--nv-hover-bg);
+    color: inherit;
+}
+
+/* Tableaux : le thème impose « white-space: nowrap » dans .table-responsive, donc un texte long ne revient jamais à la
+   ligne et pousse les dernières colonnes (boutons d'action) hors de la carte. Une cellule de texte libre reçoit cette classe. */
+.table .cell-wrap {
+    white-space: normal;
+    min-width: 160px;
+}
+
+/* ============================================================
+   Finition visuelle (2026-09-30, demande du développeur) : fond, cartes, tableau de bord, sidebar, tableaux,
+   boutons, modales. Couche additive : le gabarit du thème (§7 de CLAUDE.md) reste inchangé, seuls le rendu
+   et les espacements sont affinés.
+   ============================================================ */
+:root {
+    --nv-bg: #f2f5fa;
+    --nv-shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 12px 32px -12px rgba(18, 58, 99, .18);
+    --nv-shadow-hover: 0 2px 4px rgba(15, 23, 42, .05), 0 22px 44px -14px rgba(18, 58, 99, .32);
+    --nv-grad-brand: linear-gradient(135deg, #24589a 0%, #123a63 100%);
+}
+
+html:not(.dark-theme) body,
+html:not(.dark-theme) .page-wrapper {
+    background: var(--nv-bg);
+}
+
+.page-content {
+    padding: 1.6rem 1.75rem 2rem;
+}
+
+/* Titre de page et fil d'ariane */
+.page-breadcrumb .breadcrumb-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--nv-dark);
+    letter-spacing: -.01em;
+}
+
+hr {
+    opacity: .12;
+}
+
+/* Cartes : ombre douce, bandeau de marque en dégradé, coins nets */
+.card {
+    border: 0;
+    box-shadow: var(--nv-shadow);
+    transition: box-shadow .25s ease, transform .25s ease;
+}
+
+.card-header-brand {
+    background: var(--nv-grad-brand);
+    letter-spacing: .04em;
+    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .08);
+}
+
+.card-header-brand h6 {
+    font-weight: 700;
+    font-size: .8rem;
+}
+
+.card-header-brand .btn-light {
+    border: 0;
+    border-radius: 999px;
+    padding: .38rem .95rem;
+    font-weight: 600;
+    font-size: .74rem;
+    color: var(--nv-dark);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .12);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.card-header-brand .btn-light:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .18);
+}
+
+/* Cartes chiffrées du tableau de bord */
+.card.radius-10.bg-gradient {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px !important;
+    color: #fff;
+}
+
+.card.radius-10.bg-gradient:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--nv-shadow-hover);
+}
+
+.card.radius-10.bg-gradient::after {
+    content: '';
+    position: absolute;
+    right: -36px;
+    top: -36px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, .28), rgba(255, 255, 255, 0) 70%);
+    pointer-events: none;
+}
+
+.card.radius-10.bg-gradient .card-body {
+    padding: 1.25rem 1.35rem;
+}
+
+.card.radius-10.bg-gradient h4,
+.card.radius-10.bg-gradient .fs-2,
+.card.radius-10.bg-gradient .display-6 {
+    font-weight: 800;
+    letter-spacing: -.02em;
+}
+
+.card.radius-10.bg-gradient .widgets-icons,
+.card.radius-10.bg-gradient [class*="bx-"] {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .18));
+}
+
+/* Sidebar : élément actif en pastille avec repère orange */
+html.semi-bleu .sidebar-wrapper {
+    background: linear-gradient(180deg, #14406f 0%, #0d2d4f 100%);
+    box-shadow: 4px 0 24px rgba(13, 45, 79, .25);
+}
+
+html.semi-bleu .sidebar-wrapper .metismenu > li {
+    margin: 2px 10px;
+}
+
+html.semi-bleu .sidebar-wrapper .metismenu > li > a {
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-weight: 500;
+    transition: background .18s ease, transform .18s ease;
+}
+
+html.semi-bleu .sidebar-wrapper .metismenu > li > a:hover {
+    background: rgba(255, 255, 255, .09);
+    transform: translateX(2px);
+}
+
+html.semi-bleu .sidebar-wrapper .metismenu > li.mm-active > a {
+    background: linear-gradient(90deg, rgba(249, 115, 22, .22), rgba(255, 255, 255, .08));
+    box-shadow: inset 3px 0 0 var(--nv-accent-2);
+    font-weight: 600;
+}
+
+/* Barre du haut : ombre légère */
+html.semi-bleu .topbar {
+    box-shadow: 0 6px 20px -8px rgba(13, 45, 79, .45);
+}
+
+/* Tableaux : en-têtes nets, lignes aérées, survol doux */
+.table {
+    --bs-table-hover-bg: rgba(29, 78, 137, .045);
+}
+
+.table > :not(caption) > * > * {
+    padding: .8rem .85rem;
+    vertical-align: middle;
+    border-bottom-color: rgba(15, 23, 42, .06);
+}
+
+.table thead th {
+    background: #f6f8fc;
+    color: #5b6b82;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    border-bottom: 1px solid rgba(15, 23, 42, .08) !important;
+}
+
+.table tbody tr {
+    transition: background .15s ease;
+}
+
+.table tbody tr:hover {
+    background: rgba(29, 78, 137, .045);
+}
+
+.badge {
+    border-radius: 999px;
+    padding: .38em .8em;
+    font-weight: 600;
+    letter-spacing: .02em;
+}
+
+/* Boutons */
+.btn {
+    border-radius: 10px;
+    font-weight: 600;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.btn-primary {
+    background: var(--nv-grad-brand);
+    border: 0;
+    box-shadow: 0 6px 14px -6px rgba(18, 58, 99, .55);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: linear-gradient(135deg, #2b66b3 0%, #17497c 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px -8px rgba(18, 58, 99, .6);
+}
+
+.btn-outline-primary {
+    border-width: 1.5px;
+}
+
+.btn-sm {
+    border-radius: 9px;
+}
+
+/* Champs */
+.form-control,
+.form-select {
+    border-radius: 10px;
+    border-color: rgba(15, 23, 42, .14);
+    padding: .55rem .8rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--nv-accent);
+    box-shadow: 0 0 0 .22rem var(--nv-ring);
+}
+
+/* Modales : coins généreux, ombre profonde, en-tête en dégradé */
+.modal-content {
+    border: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px -20px rgba(8, 24, 48, .55);
+}
+
+.modal-header {
+    background: var(--nv-grad-brand) !important;
+    padding: 1rem 1.4rem;
+}
+
+.modal-backdrop.show {
+    opacity: .55;
+    backdrop-filter: blur(3px);
+}
+
+.modal-footer {
+    background: #f8fafd;
+    border-top: 1px solid rgba(15, 23, 42, .06);
+}
+
+/* Cartes de modèles de vignette (choix à l'impression) */
+.vgt-model {
+    border-radius: 14px !important;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.vgt-model:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--nv-shadow-hover);
+}
+
+.vgt-model.btn-primary {
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, .55), var(--nv-shadow-hover);
+}
+
+/* Apparition douce du contenu */
+@keyframes nv-rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
+}
+
+.page-content > * {
+    animation: nv-rise .45s ease both;
+}
+
+.page-content > *:nth-child(2) { animation-delay: .04s; }
+.page-content > *:nth-child(3) { animation-delay: .08s; }
+.page-content > *:nth-child(4) { animation-delay: .12s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .page-content > *,
+    .card,
+    .btn { animation: none !important; transition: none !important; }
+}
+
+/* Pastilles de statut : Bootstrap 5.0 (thème) n'a pas les variantes « -subtle » utilisées par les statuts. */
+.bg-primary-subtle { background: #e4edf9 !important; color: #1d4e89 !important; }
+.bg-secondary-subtle { background: #eceff3 !important; color: #4d5b6e !important; }
+.bg-success-subtle { background: #e0f5e8 !important; color: #14803f !important; }
+.bg-danger-subtle { background: #fde6e8 !important; color: #b4232e !important; }
+.bg-warning-subtle { background: #fff1d6 !important; color: #a86400 !important; }
+.badge.bg-light { background: #eef1f6 !important; color: #3b4658 !important; }
+.badge.bg-primary-subtle, .badge.bg-secondary-subtle, .badge.bg-success-subtle,
+.badge.bg-danger-subtle, .badge.bg-warning-subtle, .badge.bg-light { font-size: .72rem; }
+
+/* Organisation de l'information : pastilles de filtre, frise d'étapes, panneaux de synthèse, aperçu de carte. */
+.nv-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.nv-chip { border: 1px solid rgba(15, 23, 42, .12); background: #fff; color: #3b4658; border-radius: 999px; padding: .38rem .95rem; font-size: .78rem; font-weight: 600; transition: all .15s ease; }
+.nv-chip b { margin-left: .35rem; background: #eef1f6; color: #3b4658; border-radius: 999px; padding: .05rem .5rem; font-size: .7rem; }
+.nv-chip:hover { border-color: var(--nv-accent); color: var(--nv-accent); }
+.nv-chip.active { background: var(--nv-grad-brand); border-color: transparent; color: #fff; box-shadow: 0 6px 14px -6px rgba(18, 58, 99, .6); }
+.nv-chip.active b { background: rgba(255, 255, 255, .22); color: #fff; }
+
+.nv-steps { display: flex; list-style: none; padding: 0; margin: 0; position: relative; }
+.nv-steps li { flex: 1; text-align: center; position: relative; padding-top: 2.6rem; }
+.nv-steps li::before { content: ''; position: absolute; top: 1.15rem; left: -50%; width: 100%; height: 3px; background: #dfe5ee; z-index: 0; }
+.nv-steps li:first-child::before { display: none; }
+.nv-steps li.done::before { background: var(--nv-accent); }
+.nv-step-dot { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 2.3rem; height: 2.3rem; border-radius: 50%; background: #eef1f6; color: #8a97ab; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; z-index: 1; border: 3px solid #fff; box-shadow: 0 2px 6px rgba(15, 23, 42, .12); }
+.nv-steps li.done .nv-step-dot { background: var(--nv-accent); color: #fff; }
+.nv-steps li.current .nv-step-dot { background: var(--nv-accent-2); box-shadow: 0 0 0 4px rgba(249, 115, 22, .25); }
+.nv-step-label { display: block; font-size: .72rem; font-weight: 700; color: #33415c; }
+.nv-step-date { display: block; font-size: .68rem; color: #8a97ab; }
+
+.nv-panel { background: #f7f9fc; border: 1px solid rgba(15, 23, 42, .06); border-radius: 14px; padding: 1rem 1.15rem; }
+.nv-panel-title { font-size: .68rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: #6b7a90; margin-bottom: .6rem; }
+.nv-plate { font-size: 1.5rem; font-weight: 800; letter-spacing: .06em; color: var(--nv-dark); margin-bottom: .5rem; }
+.nv-dl { display: grid; grid-template-columns: max-content 1fr; gap: .3rem 1rem; margin: 0; font-size: .82rem; }
+.nv-dl dt { color: #6b7a90; font-weight: 500; }
+.nv-dl dd { margin: 0; text-align: right; font-weight: 600; color: #1f2a44; word-break: break-word; }
+
+.nv-preview-card { width: 484px; height: 306px; max-width: 100%; overflow: hidden; border-radius: 16px; box-shadow: var(--nv-shadow-hover); background: #dfe5ee; }
+.nv-preview-card iframe { display: block; width: 323px; height: 204px; border: 0; transform: scale(1.5); transform-origin: 0 0; }
+.vgt-models-modal .vgt-model { border-radius: 14px; }
+
+/* Tableau de bord : accueil personnalisé, tâches à traiter, parcours des demandes. */
+.nv-hero { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.5rem 1.75rem; border-radius: 20px; color: #fff; background: radial-gradient(circle at 92% 12%, rgba(249, 115, 22, .55), transparent 42%), var(--nv-grad-brand); box-shadow: var(--nv-shadow-hover); position: relative; overflow: hidden; }
+.nv-hero::after { content: ''; position: absolute; right: -60px; bottom: -80px; width: 240px; height: 240px; border-radius: 50%; background: rgba(255, 255, 255, .07); }
+.nv-hero-date { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; opacity: .8; }
+.nv-hero-title { margin: .2rem 0 .3rem; font-weight: 800; letter-spacing: -.02em; color: #fff; }
+.nv-hero-sub { font-size: .85rem; opacity: .9; }
+.nv-hero-actions { display: flex; flex-wrap: wrap; gap: .5rem; position: relative; z-index: 1; }
+.nv-hero-actions .btn-light { border-radius: 999px; font-weight: 600; color: var(--nv-dark); }
+.nv-section-title { font-size: .78rem; font-weight: 700; letter-spacing: .08em; color: #5b6b82; }
+
+.nv-task { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.1rem; background: #fff; border-radius: 16px; text-decoration: none; color: inherit; box-shadow: var(--nv-shadow); border-left: 5px solid var(--task, var(--nv-accent)); transition: transform .18s ease, box-shadow .18s ease; height: 100%; }
+.nv-task:hover { transform: translateY(-3px); box-shadow: var(--nv-shadow-hover); color: inherit; }
+.nv-task-icon { width: 2.8rem; height: 2.8rem; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; background: color-mix(in srgb, var(--task, var(--nv-accent)) 14%, #fff); color: var(--task, var(--nv-accent)); flex-shrink: 0; }
+.nv-task-body { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
+.nv-task-count { font-size: 1.6rem; font-weight: 800; letter-spacing: -.02em; color: #1f2a44; }
+.nv-task-label { font-weight: 700; font-size: .85rem; color: #33415c; }
+.nv-task-hint { font-size: .72rem; color: #8a97ab; }
+.nv-task-go { margin-left: auto; font-size: 1.4rem; color: #b3bccb; transition: transform .18s ease, color .18s ease; }
+.nv-task:hover .nv-task-go { transform: translateX(4px); color: var(--task, var(--nv-accent)); }
+.nv-task.is-empty { opacity: .7; }
+.nv-task-warning { --task: #f59e0b; } .nv-task-primary { --task: #1d4e89; } .nv-task-success { --task: #16a34a; } .nv-task-danger { --task: #dc2626; }
+
+.nv-pipeline { display: flex; height: 2.6rem; border-radius: 14px; overflow: hidden; gap: 3px; background: #eef1f6; }
+.nv-pipe { display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: .85rem; text-decoration: none; min-width: 2.2rem; transition: filter .15s ease; }
+.nv-pipe:hover { filter: brightness(1.12); color: #fff; }
+.nv-pipe-en_attente { background: #94a3b8; } .nv-pipe-validee { background: #16a34a; } .nv-pipe-rejetee { background: #dc2626; } .nv-pipe-payee { background: #1d4e89; } .nv-pipe-retiree { background: #f97316; }
+.nv-legend { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; }
+.nv-legend-item { display: inline-flex; align-items: center; gap: .4rem; font-size: .8rem; color: #33415c; text-decoration: none; }
+.nv-legend-item b { color: #1f2a44; } .nv-legend-item small { color: #8a97ab; }
+.nv-legend-item:hover { color: var(--nv-accent); }
+.nv-dot { width: .7rem; height: .7rem; border-radius: 50%; display: inline-block; }
+
+/* Sidebar : recherche, groupes par domaine, pastille de tâches, modules à venir repliés, carte utilisateur. */
+.sidebar-wrapper .metismenu li.nv-side-search { position: relative; margin: .2rem 14px .5rem; padding: 0; }
+.nv-side-search i { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: rgba(255, 255, 255, .55); font-size: 1.05rem; pointer-events: none; }
+.nv-side-search input { width: 100%; border: 1px solid rgba(255, 255, 255, .12); background: rgba(255, 255, 255, .07); color: #fff; border-radius: 10px; padding: .5rem .7rem .5rem 2.15rem; font-size: .8rem; outline: none; transition: background .18s ease, border-color .18s ease; }
+.nv-side-search input::placeholder { color: rgba(255, 255, 255, .5); }
+.nv-side-search input:focus { background: rgba(255, 255, 255, .13); border-color: rgba(249, 115, 22, .7); }
+
+.sidebar-wrapper .metismenu li.nv-group { display: flex !important; flex-direction: row !important; align-items: center; gap: .45rem; margin: 1.15rem 14px .3rem; padding: 0; font-size: .66rem; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+.sidebar-wrapper .metismenu li.nv-group i { display: inline-block !important; margin: 0 !important; font-size: .95rem; opacity: .85; }
+
+.nv-badge { margin-left: auto; min-width: 1.35rem; height: 1.35rem; padding: 0 .4rem; border-radius: 999px; background: var(--nv-accent-2); color: #fff; font-size: .68rem; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 0 0 3px rgba(249, 115, 22, .25); animation: nv-pulse 2.4s ease-in-out infinite; }
+@keyframes nv-pulse { 0%, 100% { box-shadow: 0 0 0 3px rgba(249, 115, 22, .25); } 50% { box-shadow: 0 0 0 6px rgba(249, 115, 22, .08); } }
+
+.sidebar-wrapper .metismenu li.planned-group > a .planned-badge { margin-left: auto; margin-right: 1.4rem; }
+.sidebar-wrapper .metismenu li.planned-group > ul { margin: 2px 0 6px; padding-left: .4rem; border-left: 1px dashed rgba(255, 255, 255, .18); margin-left: 24px; }
+.sidebar-wrapper .metismenu li.planned-group > ul li a { padding: 7px 10px; font-size: .8rem; border-radius: 8px; display: flex; align-items: center; gap: .55rem; }
+.sidebar-wrapper .metismenu li.planned-group > ul li a i { font-size: 1rem; margin: 0; }
+.sidebar-wrapper .metismenu li.planned-group > ul li.mm-active a { background: rgba(255, 255, 255, .1); color: #fff; }
+
+.wrapper.toggled:not(.sidebar-hovered) .nv-side-search,
+.wrapper.toggled:not(.sidebar-hovered) .metismenu li.nv-group { display: none; }
+.sidebar-wrapper .metismenu li.planned-group > a .menu-title { white-space: nowrap; font-size: .85rem; }
+.sidebar-wrapper .metismenu li.planned-group > a .planned-badge { margin-right: 1.1rem; }
+.nv-side-search input { color: #fff; }
+
+/* Onglets du registre (motos, propriétaires, déclarations, motos retrouvées). */
+.nv-tabs { display: flex; flex-wrap: wrap; gap: .4rem; padding: .35rem; background: #fff; border-radius: 14px; box-shadow: var(--nv-shadow); width: fit-content; max-width: 100%; }
+.nv-tab { display: inline-flex; align-items: center; gap: .45rem; padding: .5rem 1rem; border-radius: 10px; font-size: .82rem; font-weight: 600; color: #5b6b82; text-decoration: none; transition: background .15s ease, color .15s ease; }
+.nv-tab i { font-size: 1.05rem; }
+.nv-tab:hover { background: var(--nv-hover-bg); color: var(--nv-hover-fg); }
+.nv-tab.active { background: var(--nv-grad-brand); color: #fff; box-shadow: 0 6px 14px -6px rgba(18, 58, 99, .6); }
+
+/* ============================================================
+   Boutons modernisés (2026-09-30) : même famille visuelle partout — dégradés nets, éclat intérieur, appui
+   perceptible, focus visible, boutons d'action des tableaux en pastilles teintées par nature d'action.
+   ============================================================ */
+.btn:not(.btn-close):not(.login-button):not(.password-toggle):not(.btn-link) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .45rem;
+    padding: .55rem 1.2rem;
+    font-size: .84rem;
+    letter-spacing: .01em;
+    border-radius: 12px;
+    line-height: 1.2;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn.btn-sm:not(.btn-close):not(.login-button):not(.btn-link) {
+    padding: .4rem .85rem;
+    font-size: .78rem;
+    border-radius: 10px;
+}
+
+.btn i { font-size: 1.1em; line-height: 1; }
+
+.btn:active:not(:disabled):not(.disabled) { transform: translateY(0) scale(.97) !important; }
+
+.btn:focus-visible { outline: 0; box-shadow: 0 0 0 .22rem var(--nv-ring), 0 0 0 .1rem #fff inset !important; }
+
+.btn:disabled,
+.btn.disabled { opacity: .5; box-shadow: none !important; transform: none !important; cursor: not-allowed; filter: saturate(.6); }
+
+/* Reflet qui traverse le bouton au survol */
+.btn-primary::after,
+.btn-success::after,
+.btn-danger::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, .28) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform .55s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after,
+.btn-success:hover::after,
+.btn-danger:hover::after { transform: translateX(120%); }
+
+.btn-primary { box-shadow: 0 8px 18px -8px rgba(18, 58, 99, .75), inset 0 1px 0 rgba(255, 255, 255, .2); }
+
+.btn-success { background: linear-gradient(135deg, #22a559 0%, #12793d 100%); border: 0; color: #fff; box-shadow: 0 8px 18px -8px rgba(18, 121, 61, .7), inset 0 1px 0 rgba(255, 255, 255, .2); }
+.btn-success:hover { background: linear-gradient(135deg, #2bbd68 0%, #15903f 100%); color: #fff; transform: translateY(-1px); }
+
+.btn-danger { background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); border: 0; color: #fff; box-shadow: 0 8px 18px -8px rgba(185, 28, 28, .7), inset 0 1px 0 rgba(255, 255, 255, .2); }
+.btn-danger:hover { background: linear-gradient(135deg, #f65a5a 0%, #c72323 100%); color: #fff; transform: translateY(-1px); }
+
+.btn-warning { background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); border: 0; color: #4a3200; box-shadow: 0 8px 18px -8px rgba(245, 158, 11, .7); }
+.btn-warning:hover { color: #4a3200; transform: translateY(-1px); filter: brightness(1.05); }
+
+/* Secondaire : blanc à contour, discret mais net */
+.btn-secondary {
+    background: #fff;
+    color: #3b4658;
+    border: 1px solid rgba(15, 23, 42, .16);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, .06);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus { background: #f2f5fa; color: var(--nv-dark); border-color: rgba(29, 78, 137, .4); transform: translateY(-1px); box-shadow: 0 6px 14px -8px rgba(15, 23, 42, .35); }
+
+/* Contour : se remplit au survol */
+.btn-outline-primary { color: var(--nv-accent); border: 1.5px solid var(--nv-accent); background: transparent; }
+.btn-outline-primary:hover,
+.btn-outline-primary:focus { background: var(--nv-grad-brand); color: #fff; border-color: transparent; transform: translateY(-1px); box-shadow: 0 10px 20px -10px rgba(18, 58, 99, .7); }
+
+/* Bouton clair des bandeaux de carte : pastille blanche avec léger halo */
+.card-header-brand .btn-light { background: rgba(255, 255, 255, .96); }
+.card-header-brand .btn-light i { color: var(--nv-accent-2); }
+
+/* Lien-bouton */
+.btn-link { font-weight: 600; text-decoration: none; }
+.btn-link:hover { text-decoration: underline; }
+
+/* Actions des tableaux : pastilles carrées teintées, colorées selon l'action (icône seule) */
+.table td .btn.btn-sm:has(> i:only-child) {
+    width: 2.15rem;
+    height: 2.15rem;
+    padding: 0;
+    border-radius: 11px;
+    background: rgba(29, 78, 137, .1);
+    color: var(--nv-accent);
+    box-shadow: none;
+    border: 0;
+}
+
+.table td .btn.btn-sm:has(> i:only-child) i { font-size: 1.15rem; }
+.table td .btn.btn-sm:has(> i:only-child)::after { display: none; }
+
+.table td .btn.btn-sm:has(> i:only-child):hover,
+.table td .btn.btn-sm:has(> i:only-child):focus { background: var(--nv-grad-brand); color: #fff !important; transform: translateY(-2px); box-shadow: 0 10px 18px -8px rgba(18, 58, 99, .8); }
+
+.table td .btn.btn-sm:has(> i.bx-trash),
+.table td .btn.btn-sm:has(> i.bx-x) { background: rgba(220, 38, 38, .1); color: #c62828; }
+.table td .btn.btn-sm:has(> i.bx-trash):hover,
+.table td .btn.btn-sm:has(> i.bx-x):hover { background: linear-gradient(135deg, #ef4444, #b91c1c); box-shadow: 0 10px 18px -8px rgba(185, 28, 28, .8); }
+
+.table td .btn.btn-sm:has(> i.bx-check-shield),
+.table td .btn.btn-sm:has(> i.bx-check),
+.table td .btn.btn-sm:has(> i.bx-check-circle) { background: rgba(22, 163, 74, .12); color: #15803d; }
+.table td .btn.btn-sm:has(> i.bx-check-shield):hover,
+.table td .btn.btn-sm:has(> i.bx-check):hover,
+.table td .btn.btn-sm:has(> i.bx-check-circle):hover { background: linear-gradient(135deg, #22a559, #12793d); box-shadow: 0 10px 18px -8px rgba(18, 121, 61, .8); }
+
+.table td .btn.btn-sm:has(> i.bx-money),
+.table td .btn.btn-sm:has(> i.bx-wallet) { background: rgba(245, 158, 11, .15); color: #b45309; }
+.table td .btn.btn-sm:has(> i.bx-money):hover,
+.table td .btn.btn-sm:has(> i.bx-wallet):hover { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #4a3200 !important; box-shadow: 0 10px 18px -8px rgba(245, 158, 11, .8); }
+
+.table td .btn.btn-sm:has(> i.bx-id-card) { background: rgba(99, 102, 241, .13); color: #4f46e5; }
+.table td .btn.btn-sm:has(> i.bx-id-card):hover { background: linear-gradient(135deg, #6366f1, #4338ca); box-shadow: 0 10px 18px -8px rgba(67, 56, 202, .8); }
+
+.table td .btn.btn-sm:has(> i.bx-edit),
+.table td .btn.btn-sm:has(> i.bx-revision) { background: rgba(29, 78, 137, .1); color: var(--nv-accent); }
+
+.table td.d-flex { align-items: center; }
+
+/* Pied de modale : boutons alignés, valider mis en avant */
+.modal-footer .btn { min-width: 6.5rem; }
+.modal-footer { gap: .5rem; }
+
+/* Aperçu du logo de la carte VGT dans les réglages des mairies */
+.nv-logo-preview { width: 4.2rem; height: 4.2rem; flex-shrink: 0; display: flex; align-items: center; justify-content: center; padding: .35rem; background: #fff; border: 1px dashed rgba(15, 23, 42, .25); border-radius: 14px; overflow: hidden; }
+.nv-logo-preview img, .nv-logo-preview svg { max-width: 100%; max-height: 100%; width: auto; height: 100%; object-fit: contain; }

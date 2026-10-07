@@ -1,0 +1,13 @@
+{
+    "Unauthenticated.": "Non authentifié.",
+    "This action is unauthorized.": "Cette action n'est pas autorisée.",
+    "Forbidden": "Accès refusé",
+    "Not Found": "Introuvable",
+    "Page Expired": "Session expirée",
+    "Too Many Requests": "Trop de requêtes",
+    "Server Error": "Erreur du serveur",
+    "Service Unavailable": "Service indisponible",
+    "Unauthorized": "Non autorisé",
+    "The given data was invalid.": "Les données fournies sont invalides.",
+    "User does not have the right permissions.": "Vous n'avez pas les permissions nécessaires."
+}
