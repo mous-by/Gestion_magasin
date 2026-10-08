@@ -23,6 +23,7 @@
     </div>
 
     @include('partials.foot')
+    @include('partials.password-toggle')
     @stack('scripts')
 
     <script>

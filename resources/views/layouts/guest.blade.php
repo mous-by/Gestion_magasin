@@ -210,6 +210,7 @@
         </section>
     </main>
 
+    @include('partials.password-toggle')
     @stack('scripts')
 </body>
 </html>
