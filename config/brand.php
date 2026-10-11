@@ -61,7 +61,7 @@ return [
         ['file' => 'slide-1', 'position' => '30% center', 'icon' => 'bx bx-log-in-circle', 'badge' => 'Entrées', 'title' => 'Chaque livraison enregistrée', 'text' => 'Bordereau, quantités livrées et acceptées : les écarts de livraison sont signalés et conservés.'],
         ['file' => 'slide-2', 'position' => '25% center', 'icon' => 'bx bx-log-out-circle', 'badge' => 'Sorties', 'title' => 'Des sorties sans erreur', 'text' => 'Le stock disponible s\'affiche pendant la saisie ; une sortie supérieure au stock est bloquée.'],
         ['file' => 'slide-3', 'position' => '35% center', 'icon' => 'bx bx-package', 'badge' => 'Stock', 'title' => 'Un stock fiable à tout moment', 'text' => 'Calculé à partir des mouvements validés, avec alertes de seuil et de rupture.'],
-        ['file' => 'slide-4', 'position' => '20% center', 'icon' => 'bx bx-file', 'badge' => 'Documents', 'title' => 'Bons et états en un clic', 'text' => 'Bon de sortie, fiche de réception, état de stock et rapports au format PDF.'],
+        ['file' => 'slide-4', 'position' => '20% center', 'icon' => 'bx bx-file', 'badge' => 'Documents', 'title' => 'Bons et états en un clic', 'text' => 'Bon de sortie, bon d\'entrée, état de stock et rapports au format PDF.'],
         ['file' => 'slide-5', 'position' => '25% center', 'icon' => 'bx bx-history', 'badge' => 'Traçabilité', 'title' => 'Tout l\'historique', 'text' => 'Chaque mouvement garde sa référence, sa date et son auteur.'],
     ],
 

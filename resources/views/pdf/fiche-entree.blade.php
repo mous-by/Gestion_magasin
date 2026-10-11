@@ -1,10 +1,10 @@
-{{-- Fiche d'entrée / réception (cahier §18). Modèle définitif à valider avec le service (cahier §33). --}}
+{{-- Bon d'entrée du magasin (fiche d'entrée / réception du cahier §18). Modèle définitif à valider avec le service (cahier §33). --}}
 @php
     $planned = $entree->isPlanned();
     $q = fn ($value) => \App\Support\Quantity::format($value);
 @endphp
 @extends('pdf._layout', [
-    'title' => 'Fiche de réception',
+    'title' => 'Bon d\'entrée du magasin',
     'number' => 'N° '.$entree->displayNumber(),
     'date' => $entree->received_on,
     'stamp' => $entree->isDraft() ? 'Brouillon — sans effet sur le stock' : ($entree->status === \App\Enums\DocumentStatus::Annulee ? 'Annulée' : null),

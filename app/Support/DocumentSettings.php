@@ -34,7 +34,7 @@ class DocumentSettings
     /** Documents qui portent des signatures : clé => libellé. */
     public const DOCUMENTS = [
         'bon_sortie' => 'Bon de sortie',
-        'fiche_entree' => 'Fiche de réception',
+        'fiche_entree' => 'Bon d\'entrée du magasin',
         'fiche_mouvement' => 'Fiche de mouvement d\'un article',
         'rapport' => 'Rapports et états',
     ];
@@ -52,9 +52,9 @@ class DocumentSettings
     /** Signataires par défaut (relevés sur les documents de l'Université) : [libellé, nom]. */
     private const DEFAULT_SIGNATURES = [
         'bon_sortie' => [['Le Demandeur', '{demandeur}'], ['Le Comptable Matière', '{valide_par}'], ['Visa du Chef de Service des Finances', '']],
-        'fiche_entree' => [['Le Livreur', '{fournisseur}'], ['Le Comptable Matière', '{valide_par}'], ['Visa du Chef de Service', '']],
-        'fiche_mouvement' => [['Le Comptable Matière', '{utilisateur}'], ['', ''], ['Visa du Chef de Service', '']],
-        'rapport' => [['Le Comptable Matière', '{utilisateur}'], ['', ''], ['Visa du Chef de Service', '']],
+        'fiche_entree' => [['Le Livreur', '{fournisseur}'], ['Le Comptable Matière', '{valide_par}'], ['Le Magasinier', '']],
+        'fiche_mouvement' => [['Le Comptable Matière', '{utilisateur}'], ['', ''], ['Le Magasinier', '']],
+        'rapport' => [['Le Comptable Matière', '{utilisateur}'], ['', ''], ['Le Magasinier', '']],
     ];
 
     public const LOGO_DIRECTORY = 'brand';

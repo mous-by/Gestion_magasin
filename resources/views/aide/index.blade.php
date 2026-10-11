@@ -42,7 +42,7 @@
                 'Si vous connaissez la quantité commandée, saisissez-la dans « Prévu » : l\'application signale tout de suite un manquant ou un excédent.',
                 'Une quantité livrée mais refusée (cassée, non conforme) doit avoir un motif ; elle n\'entre jamais en stock.',
                 'Tout écart, ou tout article non prévu au bon de commande, doit être expliqué dans l\'observation de la ligne : sans elle, l\'entrée n\'est pas enregistrée.',
-                'Les écarts restent visibles dans la fiche de l\'entrée, sur la fiche de réception et dans le rapport des écarts.',
+                'Les écarts restent visibles dans la fiche de l\'entrée, sur le bon d\'entrée du magasin et dans le rapport des écarts.',
             ]],
             ['bx bx-log-out-circle', 'Enregistrer une sortie', [
                 'Sorties → « Nouvelle sortie ». Indiquez le service bénéficiaire, le demandeur et le motif.',
@@ -51,7 +51,7 @@
                 '« Valider la sortie » diminue le stock et donne le numéro SOR-AAAA-NNNN.',
             ]],
             ['bx bx-printer', 'Imprimer un bon', [
-                'Après chaque validation, l\'application propose d\'imprimer le bon de sortie ou la fiche de réception.',
+                'Après chaque validation, l\'application propose d\'imprimer le bon de sortie ou le bon d\'entrée du magasin.',
                 'Ils restent imprimables à tout moment depuis la liste (bouton imprimante) ou depuis la fiche du document.',
                 'Faites signer les zones prévues (demandeur, magasinier, responsable) et classez l\'exemplaire papier comme d\'habitude.',
             ]],

@@ -117,7 +117,7 @@
                                             </form>
                                         @endcan
                                     @endif
-                                    <a href="{{ route('entrees.pdf', $entree) }}" target="_blank" class="btn btn-primary btn-sm" title="Fiche de réception (PDF)"><i class='bx bx-printer'></i></a>
+                                    <a href="{{ route('entrees.pdf', $entree) }}" target="_blank" class="btn btn-primary btn-sm" title="Bon d'entrée du magasin (PDF)"><i class='bx bx-printer'></i></a>
                                     @if ($entree->hasPendingDiscrepancy())
                                         @can('resolve', $entree)
                                             <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#resolveEntree-{{ $entree->id }}" title="Traiter l'écart"><i class='bx bx-check-double'></i></button>
@@ -252,9 +252,9 @@
             window.addEventListener('DOMContentLoaded', () => document.querySelector('#entrees-filter [data-token="ecart-a-traiter"]')?.click());
         @endif
         @if (session('print'))
-            // Après validation : proposer l'impression de la fiche de réception.
+            // Après validation : proposer l'impression du bon d'entrée du magasin.
             window.addEventListener('DOMContentLoaded', () => setTimeout(() => Swal.fire({
-                icon: 'success', title: 'Entrée validée', text: 'Imprimer la fiche de réception ?',
+                icon: 'success', title: 'Entrée validée', text: 'Imprimer le bon d\'entrée du magasin ?',
                 showCancelButton: true, confirmButtonText: 'Imprimer', cancelButtonText: 'Plus tard',
             }).then((r) => { if (r.isConfirmed) window.open(@json(route('entrees.pdf', session('print'))), '_blank'); }), 2600));
         @endif

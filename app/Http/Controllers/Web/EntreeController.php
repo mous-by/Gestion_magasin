@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Écran Entrées (phase 4, cahier §11, §12) : liste filtrée par période, page de saisie dédiée (lignes multiples,
- * CLAUDE.md §7 règle 3), validation, annulation, fiche de réception PDF. Toute la logique est dans EntreeService.
+ * CLAUDE.md §7 règle 3), validation, annulation, bon d'entrée du magasin en PDF. Toute la logique est dans EntreeService.
  */
 class EntreeController extends Controller
 {
@@ -136,13 +136,13 @@ class EntreeController extends Controller
         return redirect()->route('entrees.index')->with('status', 'Brouillon supprimé.');
     }
 
-    /** Fiche d'entrée / réception (cahier §18). Un brouillon ou une entrée annulée est marqué comme tel. */
+    /** Bon d'entrée du magasin (fiche d'entrée / réception du cahier §18). Un brouillon ou une entrée annulée est marqué comme tel. */
     public function pdf(Entree $entree): Response
     {
         Gate::authorize('view', $entree);
 
         $entree->load(['fournisseur', 'details.article.unite', 'creator', 'validator', 'canceller', 'resolver']);
-        $name = 'fiche-reception-'.($entree->number ?? 'brouillon-'.$entree->id).'.pdf';
+        $name = 'bon-entree-'.($entree->number ?? 'brouillon-'.$entree->id).'.pdf';
 
         return Pdf::loadView('pdf.fiche-entree', ['entree' => $entree])->setPaper('a4')->stream($name);
     }

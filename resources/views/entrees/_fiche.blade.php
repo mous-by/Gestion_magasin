@@ -90,7 +90,7 @@
                 @endif
             </div>
             <div class="modal-footer">
-                <a href="{{ route('entrees.pdf', $entree) }}" target="_blank" class="btn btn-outline-primary"><i class='bx bx-printer me-1'></i>Fiche de réception</a>
+                <a href="{{ route('entrees.pdf', $entree) }}" target="_blank" class="btn btn-outline-primary"><i class='bx bx-printer me-1'></i>Bon d'entrée</a>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
             </div>
         </div>
